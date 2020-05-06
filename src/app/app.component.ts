@@ -14,12 +14,14 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     WebViewer({
       path: '../lib',
-      initialDoc: '../files/webviewer-demo-annotated.pdf'
+      initialDoc: '../files/sample.pdf'
     }, this.viewer.nativeElement).then(instance => {
       this.wvInstance = instance;
 
       // now you can access APIs through this.webviewer.getInstance()
       instance.openElements(['notesPanel']);
+      instance.closeElements(['menuOverlay', 'leftPanel']);
+
       // see https://www.pdftron.com/documentation/web/guides/ui/apis for the full list of APIs
 
       // or listen to events from the viewer element
